@@ -16,9 +16,9 @@
 </head>
 
 <body class="work-sans">
-  <header class="py-6">
+  <header class="">
 
-    <nav class="bg-white-500">
+    <nav id="navbar" class="bg-white-500 py-3 sticky top-0 z-50">
       <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
           <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -28,20 +28,12 @@
               aria-controls="mobile-menu" aria-expanded="false">
               <span class="absolute -inset-0.5"></span>
               <span class="sr-only">Open main menu</span>
-              <!--
-                Icon when menu is closed.
-    
-                Menu open: "hidden", Menu closed: "block"
-              -->
+              <!-- Icon when menu is closed. -->
               <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                 aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
               </svg>
-              <!--
-                Icon when menu is open.
-    
-                Menu open: "block", Menu closed: "hidden"
-              -->
+              <!-- Icon when menu is open. -->
               <svg class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
                 aria-hidden="true">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
@@ -56,8 +48,7 @@
           </div>
           <div class="hidden sm:ml-6 sm:block">
             <div class="flex space-x-4 align-middle">
-              <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="#" class="rounded-md  px-3 py-2 text-sm font-medium text-gray-950 text-xl"
+              <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-950 text-xl"
                 aria-current="page">About Us</a>
               <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-900 text-xl">Developers</a>
               <div class="flex align-middle bg-gray-300 rounded">
@@ -67,18 +58,15 @@
                 </a>
                 <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-900"><i
                     class="fa-brands fa-tiktok text-xl"></i></a>
-
               </div>
-
             </div>
           </div>
         </div>
       </div>
-
+    
       <!-- Mobile menu, show/hide based on menu state. -->
       <div class="sm:hidden" id="mobile-menu">
         <div class="space-y-1 px-2 pb-3 pt-2">
-          <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
           <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
             aria-current="page">Dashboard</a>
           <a href="#"
@@ -91,6 +79,38 @@
       </div>
     </nav>
     
+    <!-- Banner section -->
+    <section class="bg-slate-200 py-10">
+      <div class="banner-container flex flex-col-reverse md:flex-row justify-around items-center">
+          <div class="banner-content text-center md:text-left">
+              <h2 class="text-gray-900 text-4xl md:text-[2.5rem] font-bold uppercase">
+                  Play Like The
+              </h2>
+              <h1 class="bg-clip-text text-transparent text-6xl md:text-7xl font-extrabold leading-tight md:leading-[111px] tracking-normal uppercase"
+                  style="background-image: linear-gradient(180deg, rgb(249, 72, 178), rgb(135, 88, 241));">
+                  G.O.A.T.
+              </h1>
+              <ul class="mt-4 space-y-2 text-sm md:text-base">
+                  <li><i class="fa-regular fa-circle-play"></i> 1-Click instant play</li>
+                  <li><i class="fa-light fa-download"></i> No Download</li>
+                  <li><i class="fa-light fa-user-group"></i> 1000s of supported online games</li>
+              </ul>
+              <div class="flex flex-col md:flex-row gap-5 mt-10 justify-center md:justify-start">
+                  <a class="bg-pink-500 text-white font-semibold px-10 py-5 rounded-full text-center" href="">
+                      Sign in
+                  </a>
+                  <a class="text-white bg-indigo-500 font-semibold px-10 py-5 rounded-full text-center" href="">
+                      Go Rogue
+                  </a>
+              </div>
+          </div>
+          <div class="banner-img mb-10 md:mb-0">
+              <img src="images/Group 18.png" alt="Group 18" class="max-w-full h-auto">
+          </div>
+      </div>
+  </section>
+  
+     
   </header>
   <!-- main -->
   <main>
@@ -136,6 +156,17 @@
         // require('@tailwindcss/aspect-ratio'),
       ],
     }
+  </script>
+
+  <script>
+     window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 0) {
+      navbar.classList.add('bg-sticky');
+    } else {
+      navbar.classList.remove('bg-sticky');
+    }
+  });
   </script>
   <!--
   This example requires some changes to your config:
