@@ -18,15 +18,14 @@
 <body class="work-sans">
   <header class="">
 
-    <nav id="navbar" class="bg-white-500 py-3 sticky top-0 z-50">
+    <nav id="navbar" class=" py-3 sticky top-0 z-50 transition-colors duration-300">
       <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
           <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
             <!-- Mobile menu button-->
             <button type="button"
               class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
-              aria-controls="mobile-menu" aria-expanded="false">
-              <span class="absolute -inset-0.5"></span>
+              aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-button">
               <span class="sr-only">Open main menu</span>
               <!-- Icon when menu is closed. -->
               <svg class="block h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -64,8 +63,8 @@
         </div>
       </div>
     
-      <!-- Mobile menu, show/hide based on menu state. -->
-      <div class="sm:hidden" id="mobile-menu">
+      <!-- Mobile menu, hidden by default -->
+      <div class="sm:hidden hidden" id="mobile-menu">
         <div class="space-y-1 px-2 pb-3 pt-2">
           <a href="#" class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
             aria-current="page">Dashboard</a>
@@ -78,6 +77,7 @@
         </div>
       </div>
     </nav>
+    
     
     <!-- Banner section -->
     <section class="bg-slate-200 py-10">
@@ -167,7 +167,20 @@
       navbar.classList.remove('bg-sticky');
     }
   });
+    document.getElementById('mobile-menu-button').addEventListener('click', function() {
+      const menu = document.getElementById('mobile-menu');
+      const openIcon = this.querySelector('svg:first-child');
+      const closeIcon = this.querySelector('svg:last-child');
+  
+      // Toggle the mobile menu visibility
+      menu.classList.toggle('hidden');
+  
+      // Toggle the icons
+      openIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
   </script>
+  
   <!--
   This example requires some changes to your config:
   
